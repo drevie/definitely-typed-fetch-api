@@ -1,4 +1,4 @@
-import { SmoothieService } from '../SmoothieService';
+import SmoothieService from '../SmoothieService';
 // import { SmoothieOrder, SmoothieOrderResponse } from '../lib/smoothieServiceTypes';
 
 console.log('testing');

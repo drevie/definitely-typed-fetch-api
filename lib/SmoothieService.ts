@@ -42,6 +42,4 @@ class SmoothieService extends BaseService<SmoothieOrderResponse> {
 
 }
 
-export {
-    SmoothieService
-};
+export default SmoothieService;
