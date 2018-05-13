@@ -1,10 +1,10 @@
-# mypluralize
-A Node.js module that returns the plural form of any noun
+# definitely-typed-fetch-api
+A Node.js module that provides a typesafe wrapper class around the fetch api that is easily extendable
 ## Installation 
 ```sh
-npm install mypluralize --save
-yarn add mypluralize
-bower install pluralize --save
+npm install definitely-typed-fetch-api --save
+yarn add definitely-typed-fetch-api
+bower install definitely-typed-fetch-api --save
 ```
 ## Usage
 ### TypeScript
@@ -36,15 +36,6 @@ class SmoothieService extends BaseService<SmoothieOrderResponse> {
 }
 
 export default SmoothieService;
-```
-```sh
-Output should be 'Geese'
-```
-### AMD
-```javascript
-define(function(require,exports,module){
-  var pluralise = require('mypluralize');
-});
 ```
 ## Test 
 ```sh
