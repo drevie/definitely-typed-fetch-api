@@ -37,15 +37,6 @@ class SmoothieService extends BaseService<SmoothieOrderResponse> {
 
 export default SmoothieService;
 ```
-```sh
-Output should be 'Geese'
-```
-### AMD
-```javascript
-define(function(require,exports,module){
-  var pluralise = require('mypluralize');
-});
-```
 ## Test 
 ```sh
 npm run test
