@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "cover": "jest --coverage",
+    "cover": "jest --cover",
     "build": "tsc"
   },
   "repository": {
