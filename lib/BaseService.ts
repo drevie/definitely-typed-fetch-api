@@ -4,21 +4,27 @@ abstract class BaseService<T> {
 
     private requestInit: RequestInit;
     private serviceContext: string;
+    private testMode: boolean = false;
+    protected abstract testResponse(): Promise<T>;
 
     constructor(_serviceContext: string = 'localhost', _requestInit: RequestInit = Object.create({})) {
         this.requestInit = _requestInit;
         this.serviceContext = _serviceContext;
     }
 
-    protected setServiceContext(context: string): void {
+    public setTestMode(_testMode: boolean): void {
+        this.testMode = _testMode;
+    }
+
+    public setServiceContext(context: string): void {
         this.serviceContext = context;
     }
 
-    protected getServiceContext(): string {
+    public getServiceContext(): string {
         return this.serviceContext;
     }
 
-    protected getHeaders(): Headers {
+    public getHeaders(): Headers {
         const headers = new Headers();
         headers.set('Content-Type', 'application/json');
         return headers;
@@ -32,6 +38,9 @@ abstract class BaseService<T> {
     };
 
     protected get(url: string): Promise<T> {
+        if (this.testMode) {
+            return this.testResponse();
+        }
         return new Promise<T>(async (resolve, reject) => {
             const response = await fetch(this.buildRequest(url, 'GET'));
             if (response.ok) {
@@ -43,6 +52,9 @@ abstract class BaseService<T> {
     }
 
     protected post<P>(url: string, payload: P): Promise<T> {
+        if (this.testMode) {
+            return this.testResponse();
+        }
         return new Promise<T>(async (resolve, reject) => {
             const response = await fetch(this.buildRequest(url, 'POST', JSON.stringify(payload)));
             if (response.ok) {
@@ -54,6 +66,9 @@ abstract class BaseService<T> {
     }
 
     protected update<P>(url: string, payload: P): Promise<T> {
+        if (this.testMode) {
+            return this.testResponse();
+        }
         return new Promise<T>(async (resolve, reject) => {
             const response = await fetch(this.buildRequest(url, 'PUT', JSON.stringify(payload)));
             if (response.ok) {
@@ -65,6 +80,9 @@ abstract class BaseService<T> {
     }
 
     protected delete(url: string): Promise<T> {
+        if (this.testMode) {
+            return this.testResponse();
+        }
         return new Promise<T>(async (resolve, reject) => {
             const response = await fetch(this.buildRequest(url, 'DELETE'));
             if (response.ok) {

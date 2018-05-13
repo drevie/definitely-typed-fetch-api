@@ -1,8 +1,7 @@
-import { BaseService } from '..';
+import BaseService from './BaseService';
 import { SmoothieOrderResponse, SmoothieOrder } from './smoothieServiceTypes';
 
 class SmoothieService extends BaseService<SmoothieOrderResponse> {
-
     constructor() {
         super('www.smoothiecentral.com');
     }
@@ -22,6 +21,27 @@ class SmoothieService extends BaseService<SmoothieOrderResponse> {
     public async deleteSmoothieOrder(orderId: string): Promise<SmoothieOrderResponse> {
         return await this.delete(`${this.getServiceContext()}/smoothie/deleteorder/${orderId}`);
     }
+
+    protected testResponse(): Promise<SmoothieOrderResponse> {
+        return new Promise((resolve, reject) => resolve({
+            orderNumber: 1,
+            smoothieOrders: [
+                {
+                    fruit: 'apple',
+                    blendStyle: 'chunky',
+                    size: 'medium',
+                },
+                {
+                    fruit: 'apple',
+                    blendStyle: 'chunky',
+                    size: 'medium',
+                }
+            ]
+        }));
+    }
+
 }
 
-export default SmoothieService;
+export {
+    SmoothieService
+};

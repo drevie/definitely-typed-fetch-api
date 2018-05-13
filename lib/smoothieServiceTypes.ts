@@ -1,12 +1,20 @@
-export type fruit = 'apple' | 'orange' | 'banana';
-export type blendStyle = 'smooth' | 'chunky';
-export type size = 'small' | 'medium' | 'large';
-export interface SmoothieOrder {
+type fruit = 'apple' | 'orange' | 'banana';
+type blendStyle = 'smooth' | 'chunky';
+type size = 'small' | 'medium' | 'large';
+interface SmoothieOrder {
     fruit: fruit;
     blendStyle: blendStyle;
     size: size;
 }
-export interface SmoothieOrderResponse extends SmoothieOrder {
+interface SmoothieOrderResponse {
     smoothieOrders: SmoothieOrder[];
     orderNumber: number;
+}
+
+export {
+    fruit,
+    blendStyle,
+    size,
+    SmoothieOrder,
+    SmoothieOrderResponse,
 }
