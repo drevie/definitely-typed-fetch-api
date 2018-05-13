@@ -1,0 +1,30 @@
+{
+  "name": "definitely-typed-fetch-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drevie/definitely-typed-fetch-api.git"
+  },
+  "keywords": [],
+  "author": "Daniel Revie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drevie/definitely-typed-fetch-api/issues"
+  },
+  "homepage": "https://github.com/drevie/definitely-typed-fetch-api#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "pluralize": "^7.0.0",
+    "@types/pluralize": "0.0.28"
+  }
+}
